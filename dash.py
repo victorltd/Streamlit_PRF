@@ -35,7 +35,7 @@ def load_data():
     return pd.read_csv('df_detran_detalhe_filtrado.csv', delimiter=';', encoding='UTF-8')
 
 df_detran = load_data()
-data = gpd.read_file('dados/PE_Municipios_2023.json', driver='GeoJSON')
+data = gpd.read_file('PE_Municipios_2023.json', driver='GeoJSON')
 
 # Filtrar o GeoDataFrame com base no nome do município
 nome_estado = 'PE'
