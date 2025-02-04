@@ -313,23 +313,22 @@ if(selected == "Veículos envolvidos"):
         st.plotly_chart(fig)
 
     with col4:
-        # Contar o número de veículos por modelo
-        modelo_distribuicao = df_veiculos['modelo'].value_counts().nlargest(10).reset_index()
-        modelo_distribuicao.columns = ['Modelo', 'Número de Veículos']
+        # # Contar o número de veículos por modelo
+        # modelo_distribuicao = df_veiculos['modelo'].value_counts().nlargest(10).reset_index()
+        # modelo_distribuicao.columns = ['Modelo', 'Número de Veículos']
 
-        # Criar gráfico de barras
-        fig = px.bar(modelo_distribuicao, x='Modelo', y='Número de Veículos', title='Modelos de Veículos Envolvidos em Acidentes')
-        st.plotly_chart(fig)
+        # # Criar gráfico de barras
+        # fig = px.bar(modelo_distribuicao, x='Modelo', y='Número de Veículos', title='Modelos de Veículos Envolvidos em Acidentes')
+        # st.plotly_chart(fig)
 
-    col5, col6 , col7= st.columns([1, 1,1])
-
-    with col5:
         # Contar o número de veículos por tipo de veículo e marca
         tipo_marca_distribuicao = df_veiculos.groupby(['tipo_veiculo', 'marca_carro']).size().reset_index(name='Número de Veículos')
 
         # Criar gráfico de barras
         fig = px.bar(tipo_marca_distribuicao, x='tipo_veiculo', y='Número de Veículos', color='marca_carro', title='Proporção de Veículos por Tipo e Marca')
         st.plotly_chart(fig)
+
+    col6 , col7= st.columns([1,1])        
 
     with col6:
         df_motocicletas = df_veiculos[df_veiculos['tipo_veiculo'] == 'Motocicleta']
